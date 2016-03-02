@@ -39,12 +39,6 @@ roles:
             process_name: "/usr/sbin/nginx"
 ```
 
-## Example playbook
-
-    - hosts: servers
-      roles:
-         - { role: supervisor }
-
 # License
 
 MIT
