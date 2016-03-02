@@ -1,0 +1,8 @@
+---
+
+- name: base config
+  template:
+    src:  base.conf.j2
+    dest: "{{ supervisor_config_file }}"
+  notify:
+    - supervisor restart

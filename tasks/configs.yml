@@ -1,0 +1,27 @@
+---
+
+- name: create configuration files
+  template:
+    src:  "{{ item.template|default(supervisor_configs_template) }}"
+    dest: "{{ supervisor_configs_dir }}/{{ item.file }}"
+  with_items: "{{ supervisor_configs }}"
+  notify:
+    - supervisor restart
+
+- name: configs > Exclusive - find files
+  command: "find -type f -printf '%P\n'"
+  args:
+    chdir: "{{ supervisor_configs_dir }}"
+  changed_when: false
+  register: __supervisor_configs_find_output
+  when: supervisor_configs_exclusive
+
+# current deprecation error appears to be resolved here: https://github.com/ansible/ansible/pull/14441
+- name: clean configs
+  file:
+    path:  "{{ supervisor_configs_dir }}/{{ item }}"
+    state: absent
+  when: supervisor_configs_exclusive and (item not in supervisor_configs|map(attribute='file'))
+  with_items: "{{ __supervisor_configs_find_output.stdout_lines }}"
+  notify:
+    - supervisor restart

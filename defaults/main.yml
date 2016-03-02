@@ -1,0 +1,17 @@
+---
+
+# Config
+supervisor_config_file:     /etc/supervisor/supervisord.conf
+supervisor_config_template: ~
+supervisor_config:          []
+
+# Configs
+# this variable controls whether all of this role's managed configs are exclusively in this role
+# when set to false, other files in supervisor_configs_dir will be removed
+supervisor_configs_exclusive: false
+supervisor_configs_dir:       /etc/supervisor/conf.d
+supervisor_configs_template:  configs/empty.conf.j2
+supervisor_configs:           []
+
+# Log
+supervisor_log_dir: /var/log/supervisor

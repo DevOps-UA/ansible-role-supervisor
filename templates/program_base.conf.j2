@@ -1,0 +1,96 @@
+{% for configs in item.config|default([]) %}
+  {% for config_name, config in configs.iteritems() %}
+
+[program:{{ config_name }}]
+
+{% if config.command is defined %}
+command={{ config.command  }}
+{% endif %}
+{% if config.process_name is defined %}
+process_name={{ config.process_name  }}
+{% endif %}
+{% if config.numprocs is defined %}
+numprocs={{ config.numprocs  }}
+{% endif %}
+{% if config.directory is defined %}
+directory={{ config.directory  }}
+{% endif %}
+{% if config.umask is defined %}
+umask={{ config.umask  }}
+{% endif %}
+{% if config.priority is defined %}
+priority={{ config.priority  }}
+{% endif %}
+{% if config.autostart is defined %}
+autostart={{ config.autostart  }}
+{% endif %}
+{% if config.autorestart is defined %}
+autorestart={{ config.autorestart  }}
+{% endif %}
+{% if config.startsecs is defined %}
+startsecs={{ config.startsecs  }}
+{% endif %}
+{% if config.startretries is defined %}
+startretries={{ config.startretries  }}
+{% endif %}
+{% if config.exitcodes is defined %}
+exitcodes={{ config.exitcodes  }}
+{% endif %}
+{% if config.stopsignal is defined %}
+stopsignal={{ config.stopsignal  }}
+{% endif %}
+{% if config.stopwaitsecs is defined %}
+stopwaitsecs={{ config.stopwaitsecs  }}
+{% endif %}
+{% if config.stopasgroup is defined %}
+stopasgroup={{ config.stopasgroup  }}
+{% endif %}
+{% if config.killasgroup is defined %}
+killasgroup={{ config.killasgroup  }}
+{% endif %}
+{% if config.user is defined %}
+user={{ config.user  }}
+{% endif %}
+{% if config.redirect_stderr is defined %}
+redirect_stderr={{ config.redirect_stderr  }}
+{% endif %}
+{% if config.stdout_logfile is defined %}
+stdout_logfile={{ config.stdout_logfile  }}
+{% endif %}
+{% if config.stdout_logfile_maxbytes is defined %}
+stdout_logfile_maxbytes={{ config.stdout_logfile_maxbytes  }}
+{% endif %}
+{% if config.stdout_logfile_backups is defined %}
+stdout_logfile_backups={{ config.stdout_logfile_backups  }}
+{% endif %}
+{% if config.stdout_capture_maxbytes is defined %}
+stdout_capture_maxbytes={{ config.stdout_capture_maxbytes  }}
+{% endif %}
+{% if config.stdout_events_enabled is defined %}
+stdout_events_enabled={{ config.stdout_events_enabled  }}
+{% endif %}
+{% if config.stderr_logfile is defined %}
+stderr_logfile={{ config.stderr_logfile  }}
+{% endif %}
+{% if config.stderr_logfile_maxbytes is defined %}
+stderr_logfile_maxbytes={{ config.stderr_logfile_maxbytes  }}
+{% endif %}
+{% if config.stderr_logfile_backups is defined %}
+stderr_logfile_backups={{ config.stderr_logfile_backups  }}
+{% endif %}
+{% if config.stderr_capture_maxbytes is defined %}
+stderr_capture_maxbytes={{ config.stderr_capture_maxbytes  }}
+{% endif %}
+{% if config.stderr_events_enabled is defined %}
+stderr_events_enabled={{ config.stderr_events_enabled  }}
+{% endif %}
+{% if config.environment is defined %}
+environment={{ config.environment  }}
+{% endif %}
+{% if config.serverurl is defined %}
+serverur={{ config.serverurl  }}
+{% endif %}
+
+    {%- endfor -%}
+
+{%- endfor -%}
