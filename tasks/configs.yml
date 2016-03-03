@@ -7,6 +7,7 @@
   with_items: "{{ supervisor_configs }}"
   notify:
     - supervisor restart
+    - supervisorctl start all
 
 - name: configs > Exclusive - find files
   command: "find -type f -printf '%P\n'"
@@ -25,3 +26,4 @@
   with_items: "{{ __supervisor_configs_find_output.stdout_lines }}"
   notify:
     - supervisor restart
+    - supervisorctl start all
