@@ -4,3 +4,7 @@
   service:
     name:  supervisor
     state: restarted
+
+- name: supervisorctl start all
+  shell: supervisorctl start all
+  changed_when: false
