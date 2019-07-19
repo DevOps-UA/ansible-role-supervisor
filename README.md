@@ -45,5 +45,5 @@ MIT
 
 # Author information
 
-* ReactiveOps **[reactiveops.com](https://www.fairwinds.com/)**
+* Fairwinds **[fairwinds.com](https://www.fairwinds.com/)**
 * ELAO [**(http://www.elao.com/)**](http://www.elao.com)
