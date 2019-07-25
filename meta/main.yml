@@ -4,8 +4,8 @@ dependencies: []
 
 galaxy_info:
 
-  author:              ReactiveOps
-  company:             ReactiveOps
+  author:              Fairwinds
+  company:             Fairwinds
   description: >
     Supervisor role
   license: MIT
